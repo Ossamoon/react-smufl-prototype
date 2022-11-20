@@ -1,34 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import {
+  Score,
+  Staff,
+  StaffPath,
+  GClef,
+  TimeSig2,
+  NoteheadHalf,
+} from "./lib/bravura";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Score width={600} height={400} staffSpaceHeight={16}>
+        <Staff width={32} x={2} y={3}>
+          <GClef line={2} x={0.2} />
+          <TimeSig2 line={4} x={3.4} transform="scale(0.92,0.92)" />
+          <TimeSig2 line={2} x={3.4} transform="scale(0.92,0.92)" />
+          <NoteheadHalf line={1.5} x={8} transform="scale(0.92,0.92)" />
+        </Staff>
+      </Score>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
